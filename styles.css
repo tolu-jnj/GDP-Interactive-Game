@@ -40,6 +40,12 @@ body{
 }
 
 /* Layout */
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
 .topbar{
   width:100%;
   max-width:var(--max-width);
@@ -64,7 +70,8 @@ main#app{
   width:100%;
   max-width:var(--max-width);
   display:block;
-  min-height:60vh;
+  flex: 1;
+  margin-bottom: 20px;
 }
 
 /* Pages */
@@ -110,8 +117,42 @@ button.secondary{background:#fff;border:1px solid #d6e6fb;color:var(--text);padd
 
 /* Small screen */
 @media (max-width:720px){
-  .dashboard-grid{grid-template-columns:1fr;gap:12px}
-  .module-footer{flex-direction:column-reverse;align-items:stretch}
+  body {
+    padding: 12px;
+  }
+  .dashboard-grid{
+    grid-template-columns:1fr;
+    gap:12px
+  }
+  .module-footer{
+    flex-direction:column-reverse;
+    align-items:stretch
+  }
+  .footer {
+    padding: 16px 12px;
+    margin: 0 -12px;
+    border-radius: 0;
+  }
+  .footer small {
+    display: block;
+    line-height: 1.4;
+  }
+}
+
+/* Footer */
+.footer {
+  margin-top: auto;
+  padding: 20px 0;
+  width: 100%;
+  max-width: var(--max-width);
+  text-align: center;
+  background: var(--bg);
+  border-radius: 8px;
+}
+
+.footer small {
+  color: #45637a;
+  font-size: 0.85rem;
 }
 
 /* Accessibility: hidden sr */
