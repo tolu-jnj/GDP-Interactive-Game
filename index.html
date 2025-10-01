@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>GMP GDP Interactive Training — Lentiviral Ops</title>
+  <meta name="description" content="Scenario-based interactive GDP training for lentiviral vector manufacturing. Static, accessible, and lightweight." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar" role="banner">
+    <div class="brand">
+      <h1 id="app-title">GMP GDP Interactive</h1>
+      <p class="tag">Scenario training — Lentiviral Vector Operations</p>
+    </div>
+    <div class="controls">
+      <button id="contrastToggle" aria-pressed="false" title="Toggle high contrast">High-Contrast</button>
+      <button id="resetBtn" title="Reset progress">Reset</button>
+    </div>
+  </header>
+
+  <noscript>
+    <div class="page" style="border-left:4px solid var(--danger);">
+      <strong>JavaScript is required.</strong>
+      <p>If the app does not load, try disabling Brave Shields for this site or open <a href="http://127.0.0.1:8000/">http://127.0.0.1:8000/</a> in another browser.</p>
+    </div>
+  </noscript>
+
+  <main id="app" role="main">
+    <section id="dashboard" class="page" aria-labelledby="dashboardTitle">
+      <h2 id="dashboardTitle">Dashboard</h2>
+      <div class="dashboard-grid">
+        <div class="progress-panel" aria-live="polite">
+          <div class="progress-header">
+            <strong>Progress</strong>
+            <small id="progressPercent">0%</small>
+          </div>
+          <div class="progress-bar" aria-hidden="true">
+            <div id="progressFill" class="progress-fill"></div>
+          </div>
+          <div id="badges" class="badges" aria-label="Earned badges"></div>
+        </div>
+        <div class="modules-panel">
+          <h3>Modules</h3>
+          <ol id="moduleList" class="module-list" role="list"></ol>
+        </div>
+      </div>
+
+      <div class="notes">
+        <strong>Tip:</strong> Complete modules in order. You can revisit any module. Your progress is saved locally.
+      </div>
+    </section>
+
+    <section id="modulePage" class="page hidden" aria-labelledby="moduleTitle">
+      <div class="module-header">
+        <button class="back" id="backToDashboard">← Dashboard</button>
+        <div>
+          <h2 id="moduleTitle"></h2>
+          <p id="moduleSubtitle" class="muted"></p>
+        </div>
+      </div>
+
+      <div id="moduleContent" class="module-content" tabindex="0"></div>
+
+      <div class="module-footer">
+        <button id="prevStep" class="secondary">Previous</button>
+        <button id="nextStep" class="primary">Next</button>
+      </div>
+    </section>
+
+    <div id="modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-inner" role="document">
+        <h3 id="modalTitle"></h3>
+        <div id="modalBody"></div>
+        <div class="modal-actions">
+          <button id="modalClose">Close</button>
+        </div>
+      </div>
+    </div>
+
+
+    <div id="interrupt" class="interrupt hidden" role="alert" aria-live="assertive">
+      <p id="interruptText"></p>
+      <button id="interruptAcknowledge">Acknowledge</button>
+    </div>
+
+    <!-- Screen reader live region -->
+    <div id="srLive" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+
+    <!-- Confetti canvas -->
+    <canvas id="confettiCanvas" class="confetti"></canvas>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <small>Created for GMP training — Local-only app. Save progress is stored in your browser.</small>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
